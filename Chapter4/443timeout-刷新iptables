@@ -1,0 +1,8 @@
+iptables 规则乱了, 造成 curl apiserver:443  refuse
+
+systemctl stop kubelet
+systemctl stop docker
+iptables --flush
+iptables -tnat --flush
+systectl start kubelet
+systemctl start docker
